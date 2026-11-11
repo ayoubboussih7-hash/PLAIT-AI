@@ -10,9 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-[#F5F3FF] text-slate-900">
     <header class="flex bg-white text-black justify-around gap-55 border-b border-black rounded-lg">
-
         <div class="flex gap-50 h-20 items-center">
             <div>
                 <a href="index.html">
@@ -38,58 +37,61 @@
         <h1 class=" text-2xl font-bold ">Nouveau project</h1>
         <p>Decrivez votre project pour generer un plan de devlepemont complet avec l'IA</p>
     </div>
-    <main class="m-10 grid grid-cols-2 gap-5">
-        <section class="flex flex-col gap-10 ">
+    <main class="mx-auto max-w-7xl px-6 py-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <section class="lg:col-span-3 bg-white border border-violet-100 rounded-2xl shadow-sm p-6">
             <form id="formproject" class="flex flex-col gap-10" data-parsley-validate="">
                 <div>
-                    <div class="flex justify-between ">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div class="flex flex-col ">
                             <label for="idnomep" class="font-bold">Nom du project</label>
-                            <input id="idnomep" class="border border-gray-200 rounded-lg w-70 h-10 shadow-sm px-4" type="text" placeholder="EX : E-commerce Website" required data-parsley-minlength="5">
+                            <input id="idnomep" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="EX : E-commerce Website" required data-parsley-minlength="5">
                         </div>
                         <div class="flex flex-col ">
                             <label for="iddescription" class="font-bold ">Description</label>
-                            <input id="iddescription" class="border border-gray-200 rounded-lg w-70 h-15 placeholder:text-start shadow-sm px-4 py-6" type="text" placeholder="courte Description du project... " data-parsley-minlength="5">
+                            <input id="iddescription" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="courte Description du project... " required data-parsley-minlength="5">
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div class="flex justify-between ">
-                        <div class="flex flex-col ">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class=" flex flex-col ">
                             <label for="idbrief" class=" font-bold ">Brief complet</label>
-                            <textarea id="idbrief" class="border border-gray-200 rounded-lg w-90 h-25 shadow-sm px-4" type="text" placeholder="Decrivez en detail votre project : objectif, fonctionnalites, contraintes , etc " data-parsley-minlength="8"></textarea>
+                            <textarea id="idbrief" class="border border-gray-200 rounded-lg w-full h-28 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="text" placeholder="Decrivez en detail votre project : objectif, fonctionnalites, contraintes , etc"
+                                data-parsley-minlength="8" required></textarea>
                         </div>
-                        <div class="flex flex-col ">
-                            <label for="idduree" class="font-bold ">Duree (en jours)</label>
-                            <input id="idduree" class="border border-gray-200 rounded-lg w-30 h-10 shadow-sm px-4" type="number" placeholder="10" data-parsley-type="number">
-                        </div>
-                        <div class="flex flex-col ">
-                            <label for="idnumdev" class="font-bold ">Nombre de developpeurs</label>
-                            <input id="idnumdev" class="border border-gray-200 rounded-lg w-30 h-10 shadow-sm px-4" type="number" placeholder="1" data-parsley-type="number">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col ">
+                                <label for="idduree" class="font-bold ">Duree (en jours)</label>
+                                <input id="idduree" class="border border-gray-200 rounded-lg w-full h-11 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="10" required data-parsley-type="number" data-parsley-minlength="1">
+                            </div>
+                            <div class="flex flex-col ">
+                                <label for="idnumdev" class="font-bold ">Nombre de developpeurs</label>
+                                <input id="idnumdev" class="border border-gray-200 rounded-lg w-full h-11 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="1" required data-parsley-type="number" data-parsley-minlength="1">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-between ">
-                    <div class="flex flex-col ">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class=" flex flex-col ">
                         <label for="idtechnologies" class="font-bold ">Technologies</label>
-                        <input id="idtechnologies" class="border border-gray-200 rounded-lg w-90 h-13 shadow-sm px-4 " type="text" placeholder="Ex : HTML, Tailwind CSS , JavaScriptS " data-parsley-minlength="5">
+                        <input id="idtechnologies" class="border border-gray-200 rounded-lg w-full h-13 shadow-sm px-4 required " type="text" placeholder="Ex : HTML, Tailwind CSS , JavaScriptS " data-parsley-minlength="5">
                     </div>
                     <div class="flex flex-col gap-3 ">
                         <label for="selectniveau" class="font-bold ">Niveau de difficulte</label>
-                        <select id="selectniveau" class="border border-gray-200 rounded-lg w-70 h-10 shadow-sm px-4 " name="">
-                            <option class="font-bold" value="">Choisir un niveau</option>        
-                            <option class="font-bold" value="Beginner">Beginner</option>
-                            <option class="font-bold" value="Intermediate">Intermediate</option>
-                            <option class="font-bold" value="Advanced">Advanced</option>
+                        <select id="selectniveau" class="border border-gray-200 rounded-lg w-70 h-13 shadow-sm px-4 required " aria-placeholder="Choisir" name=" ">
+                            <option class="font-bold " value=" ">Choisir un niveau</option>        
+                            <option class="font-bold " value="Beginner">Beginner</option>
+                            <option class="font-bold " value="Intermediate">Intermediate</option>
+                            <option class="font-bold " value="Advanced">Advanced</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <button class="bg-[#7C3AED] w-100 h-10 rounded-lg py-1.5 px-19 hover:bg-violet-700 " type="submit">Generer le plan de developpement</button>
+                    <button class="bg-[#7C3AED] w-100 h-10 rounded-lg py-1.5 px-19 hover:bg-violet-700 " type="submit ">Generer le plan de developpement</button>
                 </div>
             </form>
         </section>
-        <section>
+        <section class="lg:col-span-1 bg-white border border-violet-100 rounded-2xl shadow-sm p-5 h-fit ">
 
         </section>
     </main>

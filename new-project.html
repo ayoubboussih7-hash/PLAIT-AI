@@ -8,6 +8,21 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .parsley-errors-list {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        
+        .parsley-error {
+            border-color: red;
+        }
+        
+        .parsley-success {
+            border-color: green;
+        }
+    </style>
 </head>
 
 <body class="bg-[#F5F3FF] text-slate-900">
@@ -18,9 +33,11 @@
                     <img class="w-50 hover:scale-103" src="/img/Logo PLANIT AI violet et indigo.png" alt="">
                 </a>
             </div>
+
             <div class="flex justify-between gap-5">
                 <a href="index.html" class=" font-bold hover:text-[#7C3AED] hover:bg-[#7C3AED]/20 rounded-lg w-30 h-10 py-1.5 px-4 shadow-sm">Dashboard</a>
                 <a href="new-project.html" class=" font-bold text-[#7C3AED] bg-[#7C3AED]/20 rounded-lg w-40 h-10 py-1.5 px-3 shadow-sm">Nouveau project</a>
+                <a href="project.html" class="font-bold hover:text-[#7C3AED] hover:bg-[#7C3AED]/20 rounded-lg w-30 h-10 py-1.5 px-4 shadow-sm">Task Board</a>
             </div>
         </div>
         <div class="flex justify-between py-3.5 gap-10 items-center">
@@ -42,57 +59,64 @@
             <form id="formproject" class="flex flex-col gap-10" data-parsley-validate="">
                 <div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class="flex flex-col ">
+                        <div class="flex flex-col gap-2 ">
                             <label for="idnomep" class="font-bold">Nom du project</label>
-                            <input id="idnomep" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="EX : E-commerce Website" required data-parsley-minlength="5">
+                            <input id="idnomep" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-lg focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="EX : E-commerce Website" required data-parsley-minlength="5">
                         </div>
-                        <div class="flex flex-col ">
+                        <div class="flex flex-col gap-2 ">
                             <label for="iddescription" class="font-bold ">Description</label>
-                            <input id="iddescription" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-sm focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="courte Description du project... " required data-parsley-minlength="5">
+                            <input id="iddescription" class="w-full h-11 border border-gray-300 rounded-lg px-4 shadow-lg focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100" type="text" placeholder="courte Description du project... " required data-parsley-minlength="5">
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div class=" flex flex-col ">
+                        <div class=" flex flex-col gap-2 ">
                             <label for="idbrief" class=" font-bold ">Brief complet</label>
-                            <textarea id="idbrief" class="border border-gray-200 rounded-lg w-full h-28 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="text" placeholder="Decrivez en detail votre project : objectif, fonctionnalites, contraintes , etc"
+                            <textarea id="idbrief" class="border border-gray-200 rounded-lg w-full h-28 shadow-lg px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="text" placeholder="Decrivez en detail votre project : objectif, fonctionnalites, contraintes , etc"
                                 data-parsley-minlength="8" required></textarea>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="flex flex-col ">
+                            <div class="flex flex-col gap-2 ">
                                 <label for="idduree" class="font-bold ">Duree (en jours)</label>
-                                <input id="idduree" class="border border-gray-200 rounded-lg w-full h-11 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="10" required data-parsley-type="number" data-parsley-minlength="1">
+                                <input id="idduree" class="border border-gray-200 rounded-lg w-full h-11 shadow-lg px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="10" required min="1">
                             </div>
-                            <div class="flex flex-col ">
+                            <div class="flex flex-col gap-2 ">
                                 <label for="idnumdev" class="font-bold ">Nombre de developpeurs</label>
-                                <input id="idnumdev" class="border border-gray-200 rounded-lg w-full h-11 shadow-sm px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="1" required data-parsley-type="number" data-parsley-minlength="1">
+                                <input id="idnumdev" class="border border-gray-200 rounded-lg w-full h-11 shadow-lg px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="number" placeholder="1" required min="1">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class=" flex flex-col ">
+                    <div class=" flex flex-col gap-3 ">
                         <label for="idtechnologies" class="font-bold ">Technologies</label>
-                        <input id="idtechnologies" class="border border-gray-200 rounded-lg w-full h-13 shadow-sm px-4 required " type="text" placeholder="Ex : HTML, Tailwind CSS , JavaScriptS " data-parsley-minlength="5">
+                        <input id="idtechnologies" class="border border-gray-200 rounded-lg w-full h-13 shadow-lg px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " type="text" placeholder="Ex : HTML, Tailwind CSS , JavaScriptS " required>
                     </div>
                     <div class="flex flex-col gap-3 ">
                         <label for="selectniveau" class="font-bold ">Niveau de difficulte</label>
-                        <select id="selectniveau" class="border border-gray-200 rounded-lg w-70 h-13 shadow-sm px-4 required " aria-placeholder="Choisir" name=" ">
-                            <option class="font-bold " value=" ">Choisir un niveau</option>        
+                        <select id="selectniveau" class="border border-gray-200 rounded-lg w-70 h-13 shadow-lg px-4 focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-100 " required name="">
+                            <option class="font-bold " value="">Choisir un niveau</option>        
                             <option class="font-bold " value="Beginner">Beginner</option>
                             <option class="font-bold " value="Intermediate">Intermediate</option>
                             <option class="font-bold " value="Advanced">Advanced</option>
                         </select>
                     </div>
                 </div>
-                <div>
-                    <button class="bg-[#7C3AED] w-100 h-10 rounded-lg py-1.5 px-19 hover:bg-violet-700 " type="submit ">Generer le plan de developpement</button>
+                <div class="flex flex-col items-center gap-3 ">
+                    <p id="falidate" class="text-green-400"></p>
+                    <button id="bot" class="flex justify-center bg-[#7C3AED] w-100 h-10 rounded-lg py-1.5 gap-3 hover:bg-violet-700 text-white shadow-lg font-bold " type="submit">
+                        <svg class="w-5" viewBox="0 0 24 24" id="Artwork" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M11.26,6.86l-3.39-2a.75.75,0,1,1,.78-1.28l3.36,2Z" style="fill:#ffffff;fill-rule:evenodd"></path><path d="M11.52,10.31,4.69,6.36a.75.75,0,0,1,.75-1.3l6.08,3.52Z" style="fill:#ffffff;fill-rule:evenodd"></path><path d="M19.6,5.33a.76.76,0,0,0-1-.27L12.75,8.4V6.85l3.39-2a.74.74,0,0,0,.25-1,.75.75,0,0,0-1-.25L11.65,5.78a.79.79,0,0,0-.39.68V21a.75.75,0,1,0,1.49,0V10.14l6.57-3.78A.76.76,0,0,0,19.6,5.33Z" style="fill:#e8eaed;fill-rule:evenodd"></path><circle cx="12.01" cy="3.09" r="0.84" style="fill:#e8eaed"></circle><path d="M9.48,10.82a.73.73,0,0,1,.38.64v4.08a.74.74,0,0,1-.38.65.79.79,0,0,1-.37.1.86.86,0,0,1-.38-.1L4.41,13.7a.75.75,0,1,1,.75-1.3l3.2,1.84V11.9l-1.45-.83a.75.75,0,0,1-.27-1,.74.74,0,0,1,1-.27Z" style="fill:#ffffff"></path><circle cx="5.26" cy="9.26" r="0.84" style="fill:#ffffff"></circle><path d="M16.34,9.77a.74.74,0,0,1,1,.27.75.75,0,0,1-.27,1l-1.45.83v2.34l3.2-1.84a.75.75,0,1,1,.75,1.3l-4.32,2.49a.86.86,0,0,1-.38.1.79.79,0,0,1-.37-.1.74.74,0,0,1-.38-.65V11.46a.73.73,0,0,1,.38-.64Z" style="fill:#d7d8db"></path><circle cx="18.74" cy="9.26" r="0.84" style="fill:#d7d8db"></circle></g></svg>
+                        Generer le plan de developpement
+                    </button>
                 </div>
             </form>
         </section>
-        <section class="lg:col-span-1 bg-white border border-violet-100 rounded-2xl shadow-sm p-5 h-fit ">
-
+        <section class="lg:col-span-1 bg-white border border-violet-100 rounded-2xl shadow-sm p-5 h-133">
+            <div>
+                <h2 class=" font-bold text-lg w-67 text-center">Etat de la generation</h2>
+            </div>
+            <div id="generationstatu" class="hidden"></div>
         </section>
     </main>
     <footer class=" border-t border-gray-200 bg-white px-10 py-6 ">
@@ -110,6 +134,7 @@
             </p>
         </div>
     </footer>
+    <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

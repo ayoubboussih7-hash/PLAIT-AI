@@ -1,21 +1,119 @@
+
 {
-    "tasks": [{
-        "id": "TASK-001",
-        "title": "Create the Dashboard",
-        "description": "Build the dashboard interface using HTML and Tailwind CSS.",
-        "userStories": [
-            "As a user, I want to see my projects so that I can track their progress."
-        ],
-        "acceptanceCriteria": [
-            "The dashboard displays project cards.",
-            "The layout is responsive."
-        ],
-        "priority": "High",
-        "importance": "High",
-        "size": "M",
-        "estimatedTime": 6,
-        "deadline": "Day 2",
-        "status": "To Do",
-        "dependencies": []
-    }]
+  "projectName": "Demo Project",
+  "totalEstimatedHours": 24,
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Initialiser le projet",
+      "description": "Créer la structure et configurer les outils.",
+      "userStories": ["As a developer, I want a project structure so that I can start coding."],
+      "acceptanceCriteria": ["La structure du projet existe."],
+      "priority": "Critical",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 1",
+      "status": "To Do",
+      "dependencies": []
+    },
+    {
+      "id": "TASK-002",
+      "title": "Créer le design",
+      "description": "Préparer la structure visuelle de l'application.",
+      "userStories": ["As a user, I want a clear interface so that I can navigate easily."],
+      "acceptanceCriteria": ["Le design est responsive."],
+      "priority": "High",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 1",
+      "status": "To Do",
+      "dependencies": ["TASK-001"]
+    },
+    {
+      "id": "TASK-003",
+      "title": "Créer le Dashboard",
+      "description": "Développer l'affichage des projets.",
+      "userStories": ["As a user, I want to see my projects so that I can track them."],
+      "acceptanceCriteria": ["Les projets sont affichés."],
+      "priority": "High",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 2",
+      "status": "To Do",
+      "dependencies": ["TASK-002"]
+    },
+    {
+      "id": "TASK-004",
+      "title": "Créer le formulaire",
+      "description": "Développer la création de projet.",
+      "userStories": ["As a user, I want to create a project so that I can plan my work."],
+      "acceptanceCriteria": ["Le formulaire fonctionne."],
+      "priority": "High",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 2",
+      "status": "To Do",
+      "dependencies": ["TASK-002"]
+    },
+    {
+      "id": "TASK-005",
+      "title": "Intégrer l'API",
+      "description": "Connecter le générateur de plans.",
+      "userStories": ["As a user, I want an AI plan so that I can organize tasks."],
+      "acceptanceCriteria": ["Le plan est généré."],
+      "priority": "High",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 3",
+      "status": "To Do",
+      "dependencies": ["TASK-004"]
+    },
+    {
+      "id": "TASK-006",
+      "title": "Créer le Kanban",
+      "description": "Afficher les tâches par statut.",
+      "userStories": ["As a user, I want a Kanban so that I can track tasks."],
+      "acceptanceCriteria": ["Les trois colonnes sont visibles."],
+      "priority": "High",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 3",
+      "status": "To Do",
+      "dependencies": ["TASK-003"]
+    },
+    {
+      "id": "TASK-007",
+      "title": "Tester l'application",
+      "description": "Tester les fonctionnalités principales.",
+      "userStories": ["As a developer, I want tests so that I can detect errors."],
+      "acceptanceCriteria": ["Les fonctions principales sont testées."],
+      "priority": "Medium",
+      "importance": "High",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 4",
+      "status": "To Do",
+      "dependencies": ["TASK-005", "TASK-006"]
+    },
+    {
+      "id": "TASK-008",
+      "title": "Documenter le projet",
+      "description": "Rédiger les instructions d'installation.",
+      "userStories": ["As a developer, I want documentation so that I can understand the project."],
+      "acceptanceCriteria": ["Le README est disponible."],
+      "priority": "Medium",
+      "importance": "Medium",
+      "size": "S",
+      "estimatedTime": 3,
+      "deadline": "Day 4",
+      "status": "To Do",
+      "dependencies": ["TASK-007"]
+    }
+  ]
 }

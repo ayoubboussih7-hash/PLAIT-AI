@@ -1,0 +1,21 @@
+{
+    "tasks": [{
+        "id": "TASK-001",
+        "title": "Create the Dashboard",
+        "description": "Build the dashboard interface using HTML and Tailwind CSS.",
+        "userStories": [
+            "As a user, I want to see my projects so that I can track their progress."
+        ],
+        "acceptanceCriteria": [
+            "The dashboard displays project cards.",
+            "The layout is responsive."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "size": "M",
+        "estimatedTime": 6,
+        "deadline": "Day 2",
+        "status": "To Do",
+        "dependencies": []
+    }]
+}

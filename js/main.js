@@ -1,33 +1,74 @@
-import { openSettingsModal, closeSettingsModal, toggleApiKeyInput } from "./ui.js";
+import {
+    initSettings,
+    initForm,
+    renderDashboard,
+    renderBoard
+} from "./ui.js"
 
-const openButton = document.getElementById("open-settings")
-const closeButton = document.getElementById("close-settings")
-const nodeInputs = document.querySelectorAll('input[name="ai-mode"]')
-const saveButton = document.getElementById("save-settings")
-const apiKeyInput = document.getElementById("api-key")
+import { respons, demoxport } from "./api.js"
+import { prompte } from "./prompt.js"
+import { parsePlan } from "./validation.js"
+import { addProject, getProject } from "./project.js"
 
-openButton.addEventListener("click", openSettingsModal)
-closeButton.addEventListener("click", closeSettingsModal)
+initSettings()
 
-nodeInputs.forEach(input => {
-    input.addEventListener("change", () => {
-        toggleApiKeyInput(input.value)
-    })
-})
+initForm(async(info) => {
 
-saveButton.addEventListener("click", () => {
-    const selectedMode = document.querySelector('input[name="ai-mode"]:checked')
+    const mode = sessionStorage.getItem("aiMode") || "demo"
 
-    sessionStorage.setItem("aiMode", selectedMode.value)
-})
-const mode = sessionStorage.getItem("aiMode")
-if (mode) {
-    const radio = document.querySelector(
-        `input[name="ai-mode"][value="${mode}"]`
-    )
-    if (radio) {
-        radio.checked = true
-        toggleApiKeyInput(mode)
+    let result
+
+    if (mode === "demo") {
+
+        result = await demoxport()
+
+    } else {
+
+        const apiKey = sessionStorage.getItem("apiKey")
+
+        if (!apiKey) {
+            throw new Error("API Key obligatoire")
+        }
+
+        const prompt = prompte(
+            info.name,
+            info.duration,
+            info.tem,
+            info.Technologies,
+            info.level,
+            info.description,
+            info.brife
+        )
+
+        result = await respons(apiKey, prompt)
     }
+
+    const plan = parsePlan(result)
+
+    const project = {
+        id: Date.now().toString(),
+        name: info.name,
+        description: info.description,
+        duration: info.duration,
+        tem: info.tem,
+        Technologies: info.Technologies,
+        level: info.level,
+        brife: info.brife,
+        tasks: plan.tasks
+    }
+
+    addProject(project)
+
+    window.location.href = `project.html?id=${project.id}`
+})
+
+renderDashboard()
+
+const params = new URLSearchParams(window.location.search)
+const id = params.get("id")
+
+if (id) {
+    const project = getProject(id)
+
+    renderBoard(project)
 }
-const apikey = apiKeyInput.value.trim()

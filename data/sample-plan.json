@@ -1,20 +1,200 @@
 {
     "tasks": [{
-        "id": "TASK-001",
-        "title": "Create the Dashboard",
-        "description": "Build the dashboard interface using HTML and Tailwind CSS.",
+        "id": "1",
+        "title": "Dashboard HTML & Tailwind",
+        "description": "Créer une interface Dashboard responsive avec HTML et Tailwind CSS pour afficher et gérer les projets.",
         "userStories": [
-            "As a user, I want to see my projects so that I can track their progress."
+            "As a user, I want to see all my projects on a dashboard so that I can track their progress."
         ],
         "acceptanceCriteria": [
-            "The dashboard displays project cards.",
-            "The layout is responsive."
+            "Le Header et la Navigation sont affichés.",
+            "Les cartes des projets sont visibles.",
+            "Chaque carte affiche le nom et la description du projet.",
+            "Une barre de progression affiche l'avancement.",
+            "Le bouton Nouveau projet fonctionne.",
+            "Le Dashboard est responsive."
         ],
         "priority": "High",
         "importance": "High",
-        "size": "M",
+        "estimatedTime": 6,
+        "deadline": "Day 1",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "2",
+        "title": "Formulaire de création",
+        "description": "Créer un formulaire permettant de saisir les informations nécessaires à la création d'un projet, avec validation en temps réel.",
+        "userStories": [
+            "As a user, I want to enter my project information so that I can generate a personalized development plan."
+        ],
+        "acceptanceCriteria": [
+            "Tous les champs obligatoires sont présents.",
+            "Le nom, la description et le brief peuvent être saisis.",
+            "La durée et le nombre de développeurs sont validés.",
+            "Le niveau de difficulté peut être sélectionné.",
+            "Les messages d'erreur apparaissent sous les champs invalides.",
+            "Le bouton de soumission est désactivé si le formulaire est invalide."
+        ],
+        "priority": "High",
+        "importance": "High",
         "estimatedTime": 6,
         "deadline": "Day 2",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "3",
+        "title": "Gestion des projets JS",
+        "description": "Développer les fonctionnalités JavaScript permettant de créer, afficher, modifier et supprimer les projets.",
+        "userStories": [
+            "As a user, I want to manage my projects so that I can organize my development work efficiently."
+        ],
+        "acceptanceCriteria": [
+            "Un projet peut être créé.",
+            "Chaque projet possède un identifiant unique.",
+            "Les projets sont affichés sur le Dashboard.",
+            "Un projet peut être retrouvé grâce à son ID.",
+            "Les informations d'un projet peuvent être modifiées.",
+            "La suppression d'un projet nécessite une confirmation."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 3",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "4",
+        "title": "Configuration IA",
+        "description": "Créer une interface de configuration permettant de sélectionner le Mode Demo ou Gemini et de gérer la clé API.",
+        "userStories": [
+            "As a user, I want to choose between Demo and Gemini modes so that I can use the application according to my needs."
+        ],
+        "acceptanceCriteria": [
+            "La fenêtre Paramètres IA s'ouvre et se ferme.",
+            "Le Mode Demo peut être sélectionné.",
+            "Le Mode Gemini peut être sélectionné.",
+            "Le champ API Key apparaît uniquement en Mode Gemini.",
+            "Les paramètres sont sauvegardés dans sessionStorage.",
+            "Les paramètres sont restaurés après navigation."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 4",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "5",
+        "title": "Génération IA",
+        "description": "Intégrer Gemini API pour générer automatiquement un plan de développement et permettre le chargement d'un plan prédéfini en Mode Demo.",
+        "userStories": [
+            "As a user, I want to generate a structured development plan so that I can organize my project into actionable tasks."
+        ],
+        "acceptanceCriteria": [
+            "Le Prompt est construit avec les informations du projet.",
+            "Une requête peut être envoyée à Gemini API.",
+            "La réponse de Gemini est convertie en JSON.",
+            "Le plan généré est validé.",
+            "Le Mode Demo charge sample-plan.json.",
+            "Le Mode Demo redirige directement vers project.html.",
+            "Les erreurs de génération sont affichées."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 5",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "6",
+        "title": "Task Board",
+        "description": "Créer un tableau Kanban interactif permettant de visualiser, modifier et organiser les tâches du projet.",
+        "userStories": [
+            "As a user, I want to manage my tasks in a Kanban board so that I can follow their progress."
+        ],
+        "acceptanceCriteria": [
+            "Les colonnes To Do, In Progress et Done sont affichées.",
+            "Chaque tâche apparaît dans la colonne correspondant à son statut.",
+            "Le titre, la priorité et la deadline sont visibles.",
+            "Les détails d'une tâche peuvent être consultés.",
+            "Une tâche peut être modifiée.",
+            "Le statut d'une tâche peut être changé.",
+            "Les dépendances sont respectées avant de terminer une tâche.",
+            "Une tâche peut être supprimée."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 6",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "7",
+        "title": "Suivi et persistance",
+        "description": "Sauvegarder les projets et les tâches dans localStorage et calculer automatiquement l'avancement des projets.",
+        "userStories": [
+            "As a user, I want my projects and tasks to be saved automatically so that I can continue my work after refreshing the page."
+        ],
+        "acceptanceCriteria": [
+            "Les projets sont enregistrés dans localStorage.",
+            "Les tâches sont sauvegardées après modification.",
+            "Les données sont restaurées après actualisation.",
+            "Le nombre de tâches terminées est calculé.",
+            "Le nombre de tâches restantes est calculé.",
+            "Le pourcentage d'avancement est mis à jour.",
+            "Les barres de progression reflètent les données enregistrées."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 7",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "8",
+        "title": "Tests et livraison",
+        "description": "Tester les fonctionnalités de l'application, corriger les problèmes détectés et préparer la livraison finale.",
+        "userStories": [
+            "As a developer, I want to test and document the application so that I can deliver a reliable and functional project."
+        ],
+        "acceptanceCriteria": [
+            "La navigation entre les pages fonctionne.",
+            "La création des projets est testée.",
+            "La validation du formulaire fonctionne.",
+            "Les Modes Demo et Gemini sont testés.",
+            "Les interactions du Kanban fonctionnent.",
+            "Les données restent enregistrées après actualisation.",
+            "Le design responsive est vérifié.",
+            "Le fichier README est rédigé.",
+            "Le projet est envoyé sur GitHub."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 8",
+        "status": "To Do",
+        "dependencies": []
+    }, {
+        "id": "9",
+        "title": "Gestion des erreurs et correction des bugs Description",
+        "description": "Identifier et corriger les erreurs JavaScript, les problèmes d'affichage et les dysfonctionnements liés aux projets et aux tâches.",
+        "userStories": [
+            "As a user, I want the application to handle errors correctly so that I can use it without unexpected failures."
+        ],
+        "acceptanceCriteria": [
+            "Les erreurs JavaScript sont corrigées.",
+            "Les erreurs de Gemini API sont gérées.",
+            "Les réponses JSON invalides sont détectées.",
+            "Les dépendances incorrectes sont bloquées.",
+            "Les problèmes d'affichage sont corrigés.",
+            "Un message apparaît lorsqu'un projet est introuvable.",
+            "Les erreurs sont affichées clairement à l'utilisateur.",
+            "L'application fonctionne correctement après actualisation."
+        ],
+        "priority": "High",
+        "importance": "High",
+        "estimatedTime": 6,
+        "deadline": "Day 9",
         "status": "To Do",
         "dependencies": []
     }]

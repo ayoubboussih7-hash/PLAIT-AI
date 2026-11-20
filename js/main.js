@@ -15,9 +15,7 @@ initSettings()
 initForm(async(info) => {
 
     const mode = sessionStorage.getItem("aiMode") || "demo"
-
     let result
-
     if (mode === "demo") {
 
         result = await demoxport()

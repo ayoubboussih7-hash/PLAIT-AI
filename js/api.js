@@ -27,7 +27,7 @@ export async function demoxport() {
     const res = await fetch("./data/sample-plan.json")
 
     if (!res.ok) {
-        throw new Error("Impossible de charger le plan demo")
+        throw new Error("Impossible de charger le plan demo try later")
     }
 
     return await res.json()
